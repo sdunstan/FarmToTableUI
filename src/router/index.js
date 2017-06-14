@@ -18,6 +18,11 @@ export default new Router({
           component: Room
         }
       ]
+    },
+    {
+      path: '/',
+      name: 'home',
+      component: Rooms
     }
   ]
 })
