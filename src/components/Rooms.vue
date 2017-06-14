@@ -11,7 +11,7 @@
         </md-list>
       </md-layout>
       <md-layout>
-        <router-view></router-view>
+          <router-view></router-view>
       </md-layout>
     </md-layout>
   </div>
