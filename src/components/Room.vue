@@ -2,7 +2,7 @@
 
     <md-layout class="room">
       <md-layout>
-        <sports-card  v-for="sport in sports" sport="Soccer"></sports-card>
+        <sports-card class="cards" v-for="sport in sports" sport="Soccer"></sports-card>
         <meeting-card class="cards" v-for="meeting in meetings" date="11-10-1988"></meeting-card>
       </md-layout>
     </md-layout>
