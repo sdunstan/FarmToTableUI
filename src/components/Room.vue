@@ -3,6 +3,7 @@
     <md-layout class="room">
       <md-layout>
         <meeting-card v-for="meeting in meetings" date="11-10-1988"></meeting-card>
+        <sports-card  v-for="sport in sports" sport="Soccer"></sports-card>
       </md-layout>
     </md-layout>
 
@@ -10,13 +11,15 @@
 
 <script>
 import meetingCard from '@/components/MeetingCard'
+import sportsCard from '@/components/SportsCard'
 
 export default {
   name: 'room',
   data () {
     return {
       room: {name: 'room1'},
-      meetings: []
+      meetings: [],
+      sports: []
     }
   },
   created () {
@@ -33,13 +36,14 @@ export default {
     },
     processMeeting(meetingData) {
       console.log(meetingData)
-      this.meetings.push(meetingData);
+      this.meetings.push(meetingData)
     },
     processSports(sportsData) {
       console.log(sportsData)
+      this.sports.push(sportsData)
     }
   },
-  components: {meetingCard: meetingCard}
+  components: {meetingCard: meetingCard,sportsCard: sportsCard}
 }
 </script>
 
