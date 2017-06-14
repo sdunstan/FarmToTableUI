@@ -11,6 +11,18 @@ export default {
     return {
       room: {name: 'room1'}
     }
+  },
+  created () {
+    this.connetWM('http://localhost:8090/farm-to-table-websocket', this.onFailed, this.onConnected);
+  },
+  methods: {
+    onConnected(frame) {
+      console.log('Connected', frame);
+      this.$stompClient.subscribe('/topic/greetings', function(data) { console.log('socket data', data) });
+    },
+    onFailed(frame) {
+      console.log('Failed:', frame);
+    }
   }
 }
 </script>

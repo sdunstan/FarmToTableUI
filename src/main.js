@@ -4,7 +4,9 @@ import Vue from 'vue'
 import App from './App'
 import router from './router'
 import VueMaterial from 'vue-material'
+import VueStomp from 'vue-stomp'
 
+Vue.use(VueStomp)
 Vue.use(VueMaterial)
 Vue.config.productionTip = false
 
