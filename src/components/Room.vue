@@ -2,8 +2,8 @@
 
     <md-layout class="room">
       <md-layout>
-        <meeting-card v-for="meeting in meetings" date="11-10-1988"></meeting-card>
         <sports-card  v-for="sport in sports" sport="Soccer"></sports-card>
+        <meeting-card class="cards" v-for="meeting in meetings" date="11-10-1988"></meeting-card>
       </md-layout>
     </md-layout>
 
@@ -51,5 +51,8 @@ export default {
 <style scoped>
 .room {
   padding-top: 15px;
+}
+.cards {
+  margin: 10px;
 }
 </style>
