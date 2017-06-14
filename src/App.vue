@@ -5,11 +5,8 @@
         <md-icon>menu</md-icon>
       </md-button>
 
-      <h2 class="md-title" style="flex: 1">Farm to Table</h2>
+      <h2 class="md-title" style="flex: 1">SF Meeting Assistant</h2>
 
-      <md-button class="md-icon-button">
-        <md-icon>backup</md-icon>
-      </md-button>
     </md-toolbar>
     <router-view></router-view>
   </div>
