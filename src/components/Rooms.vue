@@ -2,7 +2,7 @@
   <div class="rooms">
     <md-list>
       <md-list-item v-for="room in rooms">
-          <router-link to="/rooms/room1">
+          <router-link :to="{name: 'Room', params: { roomName: room.name }}">
             <md-icon>people</md-icon><span>{{room.name}}</span>
           </router-link>
       </md-list-item>
