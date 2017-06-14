@@ -1,13 +1,19 @@
 <template>
   <div class="rooms">
-    <md-list>
-      <md-list-item v-for="room in rooms">
-          <router-link :to="{name: 'Room', params: { roomName: room.name }}">
-            <md-icon>people</md-icon><span>{{room.name}}</span>
-          </router-link>
-      </md-list-item>
-    </md-list>
-    <router-view></router-view>
+    <md-layout md-row>
+      <md-layout md-flex="25">
+        <md-list>
+          <md-list-item v-for="room in rooms">
+              <router-link :to="{name: 'Room', params: { roomName: room.name }}">
+                <md-icon>people</md-icon><span>{{room.name}}</span>
+              </router-link>
+          </md-list-item>
+        </md-list>
+      </md-layout>
+      <md-layout>
+        <router-view></router-view>
+      </md-layout>
+    </md-layout>
   </div>
 </template>
 
