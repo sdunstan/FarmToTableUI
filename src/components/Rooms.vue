@@ -7,6 +7,7 @@
           </router-link>
       </md-list-item>
     </md-list>
+    <router-view></router-view>
   </div>
 </template>
 
