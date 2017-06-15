@@ -20,6 +20,12 @@ export default {
     opponent: function() {
       if(this.team === 'cardinals') {
         return 'Dallas Cowboys'
+      } else if(this.team === 'coyotes') {
+        return 'L.A. Kings'
+      } else if(this.team === 'suns') {
+        return 'New York Knicks'
+      } else if(this.team === 'diamondbacks') {
+        return 'Chicago Cubs'
       }
     },
     nextGame: function() {
