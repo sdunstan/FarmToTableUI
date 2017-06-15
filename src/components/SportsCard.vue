@@ -4,7 +4,7 @@
         <div class="md-title">{{ team | capitalize }}</div>
       </md-card-header>
       <md-card-content>
-        <span class="md-subheading">Next Game: </span>
+        <span class="md-subheading">Next Opponent: {{opponent}}</span>
       </md-card-content>
 
   </div>
@@ -14,6 +14,13 @@
 export default {
   name: 'sportsCard',
   props: ['team'],
+  computed: {
+    opponent: function() {
+      if(this.team === 'cardinals') {
+        return 'Dallas Cowboys'
+      }
+    }
+  },
   filters: {
     capitalize: function (team) {
       return team.charAt(0).toUpperCase() + team.slice(1);
