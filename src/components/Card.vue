@@ -4,8 +4,9 @@
       <md-button class="md-icon-button" @click.native="closeCard()">
         <md-icon>close</md-icon>
       </md-button>
-      <sports-card v-if="isSports" class="cards" sport="Soccer"></sports-card>
+      <sports-card v-if="isSports" class="cards" sport="soccer"></sports-card>
       <meeting-card v-if="isMeeting" class="cards" date="11-10-1988"></meeting-card>
+      <google-card v-if="isGoogle" class="cards" :url="data.url" :phrase="data.phrase"></google-card>
     </md-card>
   </div>
 </template>
@@ -13,11 +14,12 @@
 <script>
 import sportsCard from '@/components/SportsCard'
 import meetingCard from '@/components/MeetingCard'
+import googleCard from '@/components/GoogleCard'
 
 export default {
   name: 'card',
   props: ['data'],
-  components: {sportsCard: sportsCard, meetingCard: meetingCard},
+  components: {sportsCard: sportsCard, meetingCard: meetingCard, googleCard: googleCard},
   methods: {
     closeCard: function() {
       this.$emit('closeCard')
@@ -38,6 +40,9 @@ export default {
     },
     isMeeting: function() {
       return this.data.type === 'meeting'
+    },
+    isGoogle: function() {
+      return this.data.type === 'google'
     }
   }
 }

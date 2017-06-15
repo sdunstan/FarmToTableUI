@@ -15,7 +15,6 @@ export default {
   name: 'room',
   data () {
     return {
-      room: {name: 'room1'},
       cards: [{type: 'meeting'}, {type: 'sports'}]
     }
   },
@@ -24,9 +23,10 @@ export default {
   },
   methods: {
     onConnected(frame) {
-      console.log('Connected', frame);
-      this.$stompClient.subscribe('/topic/meetings', this.processMeeting);
+      //console.log('Connected', frame);
+      this.$stompClient.subscribe('/topic/meetings', this.processMeeting)
       this.$stompClient.subscribe('/topic/sports', this.processSports)
+      this.$stompClient.subscribe('/topic/google', this.processGoogle)
     },
     onFailed(frame) {
       console.log('Failed:', frame);
@@ -39,9 +39,14 @@ export default {
       data.type = 'sports'
       this.processData(data)
     },
+    processGoogle(data) {
+      var jsonObj = JSON.parse(data.body)
+      var response = {type: 'google', url: jsonObj.url, phrase: jsonObj.data}
+      this.processData(response)
+    },
     processData(data) {
-      console.log(data)
-      this.cards.push(data)
+      //console.log(data)
+      this.cards.unshift(data)
     },
     closeIt(index) {
       this.cards.splice(index, 1)
