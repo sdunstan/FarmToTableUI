@@ -1,6 +1,5 @@
 <template>
   <div class="sports-card">
-    <md-card>
       <md-card-header>
         <div class="md-title">Sports</div>
         <div class="md-subhead">Sports</div>
@@ -9,7 +8,6 @@
         <span class="md-title">Sport: {{sport}}</span>
       </md-card-content>
 
-    </md-card>
   </div>
 </template>
 

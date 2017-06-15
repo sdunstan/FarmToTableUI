@@ -2,7 +2,7 @@
 
     <md-layout class="room">
       <md-layout>
-        <card class="cards" v-for="card in cards" :data="card"></card>
+        <card class="cards" v-for="(card, index) in cards" :data="card" v-on:closeCard="closeIt(index)"></card>
       </md-layout>
     </md-layout>
 
@@ -42,6 +42,9 @@ export default {
     processData(data) {
       console.log(data)
       this.cards.push(data)
+    },
+    closeIt(index) {
+      this.cards.splice(index, 1)
     }
   },
   components: {card: card}

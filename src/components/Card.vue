@@ -1,7 +1,12 @@
 <template>
   <div class="card">
-    <sports-card v-if="isSports" class="cards" sport="Soccer"></sports-card>
-    <meeting-card v-if="isMeeting" class="cards" date="11-10-1988"></meeting-card>
+    <md-card>
+      <md-button class="md-icon-button" @click.native="closeCard()">
+        <md-icon>close</md-icon>
+      </md-button>
+      <sports-card v-if="isSports" class="cards" sport="Soccer"></sports-card>
+      <meeting-card v-if="isMeeting" class="cards" date="11-10-1988"></meeting-card>
+    </md-card>
   </div>
 </template>
 
@@ -13,13 +18,25 @@ export default {
   name: 'card',
   props: ['data'],
   components: {sportsCard: sportsCard, meetingCard: meetingCard},
+  methods: {
+    closeCard: function() {
+      this.$emit('closeCard')
+    },
+    greet: function (event) {
+      console.log("hi")
+      // `this` inside methods points to the Vue instance
+      alert('Hello ' + this.name + '!')
+      // `event` is the native DOM event
+      if (event) {
+        alert(event.target.tagName)
+      }
+    }
+  },
   computed: {
     isSports: function() {
-      console.log("this is " + this.data)
       return this.data.type === 'sports'
     },
     isMeeting: function() {
-      console.log("this is " + this.data)
       return this.data.type === 'meeting'
     }
   }
