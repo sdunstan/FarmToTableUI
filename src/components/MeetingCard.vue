@@ -2,6 +2,7 @@
   <div class="meeting-card">
     <md-card>
       <md-card-header>
+        <md-icon md-align="end">close</md-icon>
         <div class="md-title">Schedule a Meeting</div>
         <div class="md-subhead">Subheader</div>
       </md-card-header>

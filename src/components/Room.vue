@@ -2,28 +2,25 @@
 
     <md-layout class="room">
       <md-layout>
-        <sports-card class="cards" v-for="sport in sports" sport="Soccer"></sports-card>
-        <meeting-card class="cards" v-for="meeting in meetings" date="11-10-1988"></meeting-card>
+        <card class="cards" v-for="card in cards" :data="card"></card>
       </md-layout>
     </md-layout>
 
 </template>
 
 <script>
-import meetingCard from '@/components/MeetingCard'
-import sportsCard from '@/components/SportsCard'
+import card from '@/components/card'
 
 export default {
   name: 'room',
   data () {
     return {
       room: {name: 'room1'},
-      meetings: [],
-      sports: []
+      cards: [{type: 'meeting'}, {type: 'sports'}]
     }
   },
   created () {
-    this.connetWM('http://192.168.1.102:8090/farm-to-table-websocket', this.onFailed, this.onConnected);
+    this.connetWM('http://localhost:8090/farm-to-table-websocket', this.onFailed, this.onConnected);
   },
   methods: {
     onConnected(frame) {
@@ -34,16 +31,20 @@ export default {
     onFailed(frame) {
       console.log('Failed:', frame);
     },
-    processMeeting(meetingData) {
-      console.log(meetingData)
-      this.meetings.push(meetingData)
+    processMeeting(data) {
+      data.type = 'meeting'
+      this.processData(data)
     },
-    processSports(sportsData) {
-      console.log(sportsData)
-      this.sports.push(sportsData)
+    processSports(data) {
+      data.type = 'sports'
+      this.processData(data)
+    },
+    processData(data) {
+      console.log(data)
+      this.cards.push(data)
     }
   },
-  components: {meetingCard: meetingCard,sportsCard: sportsCard}
+  components: {card: card}
 }
 </script>
 
