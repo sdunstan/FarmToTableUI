@@ -40,7 +40,7 @@ export default {
       var jsonObj = JSON.parse(data.body)
       let sportTeam = jsonObj.data.match(/suns|diamondbacks|coyotes|cardinals/g)[0]
       let response = {type: 'sports', team: sportTeam}
-      this.processData(data)
+      this.processData(response)
     },
     processGoogle(data) {
       var jsonObj = JSON.parse(data.body)

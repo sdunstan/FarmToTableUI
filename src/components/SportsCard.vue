@@ -1,7 +1,7 @@
 <template>
   <div class="sports-card">
       <md-card-header>
-        <div class="md-title">{{ team }}</div>
+        <div class="md-title">{{ team | capitalize }}</div>
       </md-card-header>
       <md-card-content>
         <span class="md-subheading">Next Game: </span>
@@ -13,7 +13,12 @@
 <script>
 export default {
   name: 'sportsCard',
-  props: ['team']
+  props: ['team'],
+  filters: {
+    capitalize: function (team) {
+      return team.charAt(0).toUpperCase() + team.slice(1);
+    }
+  }
 }
 </script>
 
