@@ -25,5 +25,6 @@ export default {
 <style scoped>
 .google-card {
   background-image: url("../assets/google_logo-f2t.png");
+  background-repeat: no-repeat;
 }
 </style>

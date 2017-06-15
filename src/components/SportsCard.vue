@@ -1,11 +1,10 @@
 <template>
   <div class="sports-card">
       <md-card-header>
-        <div class="md-title">Sports</div>
-        <div class="md-subhead">Sports</div>
+        <div class="md-title">{{ team | capitalize }}</div>
       </md-card-header>
       <md-card-content>
-        <span class="md-title">Sport: {{sport}}</span>
+        <span class="md-subheading">Next Opponent: {{opponent}}</span>
       </md-card-content>
 
   </div>
@@ -14,7 +13,19 @@
 <script>
 export default {
   name: 'sportsCard',
-  props: ['sport']
+  props: ['team'],
+  computed: {
+    opponent: function() {
+      if(this.team === 'cardinals') {
+        return 'Dallas Cowboys'
+      }
+    }
+  },
+  filters: {
+    capitalize: function (team) {
+      return team.charAt(0).toUpperCase() + team.slice(1);
+    }
+  }
 }
 </script>
 

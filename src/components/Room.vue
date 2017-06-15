@@ -15,7 +15,7 @@ export default {
   name: 'room',
   data () {
     return {
-      cards: [{type: 'meeting'}, {type: 'sports'}]
+      cards: [{type: 'default'}]
     }
   },
   created () {
@@ -37,8 +37,10 @@ export default {
       this.processData(response)
     },
     processSports(data) {
-      data.type = 'sports'
-      this.processData(data)
+      var jsonObj = JSON.parse(data.body)
+      let sportTeam = jsonObj.data.match(/suns|diamondbacks|coyotes|cardinals/g)[0]
+      let response = {type: 'sports', team: sportTeam}
+      this.processData(response)
     },
     processGoogle(data) {
       var jsonObj = JSON.parse(data.body)

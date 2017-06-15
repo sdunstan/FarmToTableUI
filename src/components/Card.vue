@@ -4,9 +4,10 @@
       <md-button class="md-icon-button" @click.native="closeCard()">
         <md-icon>close</md-icon>
       </md-button>
-      <sports-card v-if="isSports" class="cards" sport="soccer"></sports-card>
+      <sports-card v-if="isSports" class="cards" :team="data.team"></sports-card>
       <meeting-card v-if="isMeeting" class="cards" :date="data.start"></meeting-card>
       <google-card v-if="isGoogle" class="cards" :url="data.url" :phrase="data.phrase"></google-card>
+      <default-card v-if="isDefault" class="cards"></default-card>
     </md-card>
   </div>
 </template>
@@ -15,11 +16,12 @@
 import sportsCard from '@/components/SportsCard'
 import meetingCard from '@/components/MeetingCard'
 import googleCard from '@/components/GoogleCard'
+import defaultCard from '@/components/DefaultCard'
 
 export default {
   name: 'card',
   props: ['data'],
-  components: {sportsCard: sportsCard, meetingCard: meetingCard, googleCard: googleCard},
+  components: {sportsCard: sportsCard, meetingCard: meetingCard, googleCard: googleCard, defaultCard: defaultCard},
   methods: {
     closeCard: function() {
       this.$emit('closeCard')
@@ -43,6 +45,9 @@ export default {
     },
     isGoogle: function() {
       return this.data.type === 'google'
+    },
+    isDefault: function() {
+      return this.data.type === 'default'
     }
   }
 }
@@ -50,5 +55,7 @@ export default {
 
 <!-- Add "scoped" attribute to limit CSS to this component only -->
 <style scoped>
-
+.card {
+  max-width: 320px;
+}
 </style>
