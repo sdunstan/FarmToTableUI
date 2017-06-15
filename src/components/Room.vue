@@ -32,8 +32,9 @@ export default {
       console.log('Failed:', frame);
     },
     processMeeting(data) {
-      data.type = 'meeting'
-      this.processData(data)
+      var jsonObj = JSON.parse(data.body)
+      var response = {type: 'meeting', start: jsonObj.start, end: jsonObj.end}
+      this.processData(response)
     },
     processSports(data) {
       data.type = 'sports'
