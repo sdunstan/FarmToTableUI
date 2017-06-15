@@ -2,11 +2,11 @@
   <div class="default-card">
 
       <md-card-header>
-        <div class="md-title">Welcome to the meeting!!!</div>
+        <div class="md-title">Welcome to the meeting</div>
       </md-card-header>
 
       <md-card-content>
-        lkadsjfldsjdslkf lkdsfj dslfjdslf sdkl;fj sdalfkjasdlkfjsdflk sejflds
+        As topics are discussed in your meeting, the assistant will try to provide cards which could be useful. Feel free to close cards which aren't relevant, or use the actions for ones that are.
       </md-card-content>
 
   </div>

@@ -4,7 +4,7 @@
       <md-button class="md-icon-button" @click.native="closeCard()">
         <md-icon>close</md-icon>
       </md-button>
-      <sports-card v-if="isSports" class="cards" sport="soccer"></sports-card>
+      <sports-card v-if="isSports" class="cards" :sport="data"></sports-card>
       <meeting-card v-if="isMeeting" class="cards" :date="data.start"></meeting-card>
       <google-card v-if="isGoogle" class="cards" :url="data.url" :phrase="data.phrase"></google-card>
       <default-card v-if="isDefault" class="cards"></default-card>

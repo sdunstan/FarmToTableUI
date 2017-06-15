@@ -9,7 +9,12 @@ import VueStomp from 'vue-stomp'
 Vue.use(VueStomp)
 Vue.use(VueMaterial)
 Vue.config.productionTip = false
-
+Vue.material.registerTheme('default',{
+    primary: 'red',
+    accent: 'blue',
+    warn: 'red',
+    background: 'white'
+})
 /* eslint-disable no-new */
 new Vue({
   el: '#app',
