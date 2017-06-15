@@ -10,7 +10,10 @@ Vue.use(VueStomp)
 Vue.use(VueMaterial)
 Vue.config.productionTip = false
 Vue.material.registerTheme('default',{
-    primary: 'red',
+    primary: {
+        color: 'red',
+        hue: 'A700'
+    },
     accent: 'blue',
     warn: 'red',
     background: 'white'
