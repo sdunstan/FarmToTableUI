@@ -4,13 +4,15 @@
         <div class="md-title">{{ team | capitalize }}</div>
       </md-card-header>
       <md-card-content>
-        <span class="md-subheading">Next Opponent: {{opponent}}</span>
+        <div class="md-subhead">Next Opponent: {{opponent}}</div>
+        <div class="md-subhead">Next game {{nextGame}}</div>
       </md-card-content>
 
   </div>
 </template>
 
 <script>
+import moment from 'moment'
 export default {
   name: 'sportsCard',
   props: ['team'],
@@ -19,6 +21,10 @@ export default {
       if(this.team === 'cardinals') {
         return 'Dallas Cowboys'
       }
+    },
+    nextGame: function() {
+      let rand = Math.random() * (12 - 0 ) + 0
+      return moment().add(rand, 'weeks').fromNow()
     }
   },
   filters: {
