@@ -2,8 +2,8 @@
   <div class="google-card">
 
       <md-card-header>
-        <div class="md-title">Google It</div>
-        <div class="md-subhead">{{ phrase }}</div>
+        <div class="md-title">{{phrase}}</div>
+        <div class="md-subhead">Search</div>
       </md-card-header>
 
 
@@ -23,5 +23,7 @@ export default {
 
 <!-- Add "scoped" attribute to limit CSS to this component only -->
 <style scoped>
-
+.google-card {
+  background-image: url("../assets/google_logo-f2t.png");
+}
 </style>
