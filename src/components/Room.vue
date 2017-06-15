@@ -15,7 +15,7 @@ export default {
   name: 'room',
   data () {
     return {
-      cards: [{type: 'meeting'}, {type: 'sports'}]
+      cards: [{type: 'default'}, {type: 'meeting'}, {type: 'sports'}]
     }
   },
   created () {
